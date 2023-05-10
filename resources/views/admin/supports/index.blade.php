@@ -1,6 +1,6 @@
 <h1>meu index ta funcionando</h1>
 
-
+<a href="{{ route('support.create') }}">Criar duvida</a>
 <table border="1">
     <thead>
         <th>Assunto</th>

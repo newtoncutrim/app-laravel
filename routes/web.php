@@ -26,4 +26,6 @@ Route::get('/support', [SupportController::class, 'index'])->name('support.index
 
 Route::get('/support/create', [SupportController::class, 'create'])->name('support.create');
 
+Route::post('/support/create', [SupportController::class, 'store'])->name('support.store');
+
 
