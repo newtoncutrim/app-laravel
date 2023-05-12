@@ -26,6 +26,11 @@ Route::get('/support', [SupportController::class, 'index'])->name('support.index
 
 Route::get('/support/create', [SupportController::class, 'creat'])->name('support.create');
 
+Route::put('/support/{id}', [SupportController::class, 'update'])->name('support.update');
+
+Route::get('/support/{id}/edit', [SupportController::class, 'edit'])->name('support.edit');
+Route::get('support/{id}', [SupportController::class, 'show'])->name('support.show');
+
 Route::post('/support/create', [SupportController::class, 'store'])->name('support.store');
 
 
