@@ -34,12 +34,9 @@ class SupportController extends Controller
     }
 
     public function store(StoreUpdateSupport $request, Support $support){
-
+        dd('er');
         $data = $request->all();
-        // if($data['subject'] == ''){
-        //     return redirect()->route('support.create');
-        // }
-
+        
         
         $data['status'] = 'a';
         $support->create($data);

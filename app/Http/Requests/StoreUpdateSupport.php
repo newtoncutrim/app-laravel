@@ -3,9 +3,12 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Facades\Validator;
 
 class StoreUpdateSupport extends FormRequest
 {
+    protected $redirect = '/support/create';
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -36,4 +39,6 @@ class StoreUpdateSupport extends FormRequest
 
         ];
     }
+
+    
 }
