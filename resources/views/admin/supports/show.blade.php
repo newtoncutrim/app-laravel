@@ -6,3 +6,9 @@
     <li>conteudo: {{$support->body}}</li>
     <a href="{{route('support.index')}}">voltar</a>
 </ul>
+
+<form action="{{route('support.destroy', $support->id)}}" method="POST">
+    @csrf
+    @method('DELETE')
+    <input type="submit" value="Deletar">
+</form>

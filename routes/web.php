@@ -20,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::delete('/support/{id}', [SupportController::class, 'destroy'])->name('support.destroy');
+
 Route::get('/teste', [Teste::class, 'teste']);
 
 Route::get('/support', [SupportController::class, 'index'])->name('support.index');
@@ -29,6 +31,7 @@ Route::get('/support/create', [SupportController::class, 'creat'])->name('suppor
 Route::put('/support/{id}', [SupportController::class, 'update'])->name('support.update');
 
 Route::get('/support/{id}/edit', [SupportController::class, 'edit'])->name('support.edit');
+
 Route::get('support/{id}', [SupportController::class, 'show'])->name('support.show');
 
 Route::post('/support/create', [SupportController::class, 'store'])->name('support.store');
