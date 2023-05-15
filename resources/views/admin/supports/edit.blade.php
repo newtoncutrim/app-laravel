@@ -1,5 +1,10 @@
 <h1>edite {{$support->id}}</h1>
 
+@if ($errors->any())
+    @foreach($errors->all() as $error)
+        {{$error}}
+    @endforeach
+@endif
 
 <a href="{{ route('support.index') }}">Mostrar</a>
 

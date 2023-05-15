@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class StoreUpdateSupport extends FormRequest
 {
@@ -24,20 +25,27 @@ class StoreUpdateSupport extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'subject' => [
-            'required',
-            'unique:supports',
-            'min:3',
-            'max:255',
-        ],
+        $rule = [
+            'subject' => 'required|unique:supports|min:3|max:255', 
             'body' => [
-                'required',
-                'max:10000',
-                'min:3'
-            ]
-
+            'required',
+            'max:10000',
+            'min:3'
+        ],
         ];
+
+        if($this->method() === 'PUT'){
+            $rule['subject'] = [
+                'required',
+                'min:3',
+                'max:255',
+
+                Rule::unique('supports')->ignore($this->id)
+            ];
+        }
+        return $rule;
+            
+        
     }
 
     

@@ -1,3 +1,4 @@
+
 <h1>meu index ta funcionando</h1>
 
 <a href="{{ route('support.create') }}">Criar duvida</a>

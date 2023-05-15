@@ -2,7 +2,7 @@
 
 @if ($errors->any())
     @foreach($errors->all() as $error)
-        <h1>{{$error}}</h1>
+        {{$error}}
     @endforeach
 @endif
 
@@ -10,7 +10,7 @@
 
 <form action="{{ route('support.store') }}" method="POST">
     @csrf
-    <input type="text" placeholder="Assunto" name="subject" >
-    <textarea name="body"  cols="30" rows="10"></textarea>
+    <input type="text" placeholder="Assunto" name="subject" value="{{old('subject')}}">
+    <textarea name="body"  cols="30" rows="10">{{old('body')}}</textarea>
     <button type="submit">Enviar</button>
 </form>

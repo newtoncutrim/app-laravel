@@ -34,8 +34,8 @@ class SupportController extends Controller
     }
 
     public function store(StoreUpdateSupport $request, Support $support){
-        dd('er');
-        $data = $request->all();
+        
+        $data = $request->validated();
         
         
         $data['status'] = 'a';
@@ -53,16 +53,13 @@ class SupportController extends Controller
 
     }
 
-    public function update(Request $request, Support $support, string|int $id){
+    public function update(StoreUpdateSupport $request, Support $support, string|int $id){
 
         if(!$support = $support->find($id)){
             return back();
         }
 
-        $support->update($request->only([
-            'subject',
-            'body'
-        ]));
+        $support->update($request->validated());
 
         return redirect()->route('support.index');
 
