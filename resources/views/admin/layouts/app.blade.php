@@ -7,6 +7,7 @@
     <title>@yield('title') - {{ config('app.name') }}</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="teste.js"></script>
 </head>
 <body>
     <section class="container px-4 mx-auto py-4">

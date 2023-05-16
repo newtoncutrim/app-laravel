@@ -37,9 +37,9 @@ class SupportService {
     }
 
 
-    public function delete(string $id): boll|null
+    public function delete(string $id): bool|null
     {
-        $this->repository->delete($id);
+        return $this->repository->delete($id);
     }
 }
 

@@ -16,8 +16,8 @@ class UpdateSupportDTO{
         return new self(
             $request->id,
             $request->subject,
-            'a',
-            $request->body
+            $request->body,
+            'a'
         );
     }
 }

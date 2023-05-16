@@ -31,7 +31,7 @@ class SupportEloquentORM implements SupportRepositoryInterface {
     public function findOne(string $id): stdClass|null {
 
         $support = $this->model->find($id);
-        if($support){
+        if(!$support){
             return null;
         }
 
@@ -53,8 +53,8 @@ class SupportEloquentORM implements SupportRepositoryInterface {
 
     }
     public function update(UpdateSupportDTO $dto): stdClass|null {
-
-        if(!$support = $this->model->find($dto)){
+        
+        if(!$support = $this->model->find($dto->id)){
             return null;
         };
 
