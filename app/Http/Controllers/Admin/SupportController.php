@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DTO\CreateSupportDTO;
-use App\DTO\UpdateSupportDTO;
+use App\DTO\Supports\CreateSupportDTO;
+use App\DTO\Supports\UpdateSupportDTO;
 use App\Models\Support;
 use App\Http\Requests\StoreUpdateSupport;
 use App\Http\Controllers\Controller;
@@ -29,7 +29,7 @@ class SupportController extends Controller
         $filters = ['filter' => $request->get('filter', '')];
 
         // return view('admin/supports/index', ['support' => $supports]);
-        return view('admin/supports/index', compact('supports', 'filter'));
+        return view('admin/supports/index', compact('supports', 'filters'));
     }
 
     public function show(string $id){

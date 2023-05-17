@@ -28,7 +28,7 @@
             <tr>
                 <td>{{$support->id}}</td>
                 <td>{{$support->subject}}</td>
-                <td>{{$support->status}}</td>
+                <td>{{getStatusSupport($support->status)}}</td>
                 <td>{{$support->body}}</td>
                 <td>{{$support->id}}</td>
                 <td>
@@ -46,4 +46,4 @@
 
 <x-pagination :paginator="$supports" :appends="$filters"/>
 
-16min aula 27 you
+
