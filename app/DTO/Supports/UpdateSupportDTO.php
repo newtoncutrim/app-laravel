@@ -2,12 +2,13 @@
 
 namespace App\DTO\Supports;
 
+use App\Enums\SupportStatus;
 use App\Http\Requests\StoreUpdateSupport;
 
 class UpdateSupportDTO{
 
 
-    public function __construct(public string $id, public string $subject, public string $body, public string $status)
+    public function __construct(public string $id, public string $subject, public string $body, public SupportStatus $status)
     {
 
     }
@@ -17,7 +18,7 @@ class UpdateSupportDTO{
             $request->id,
             $request->subject,
             $request->body,
-            'a'
+            SupportStatus::A
         );
     }
 }
