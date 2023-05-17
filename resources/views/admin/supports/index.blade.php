@@ -11,26 +11,29 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-    
-<h1>meu index ta funcionando</h1>
+
+<h1>Mostrar</h1>
 
 <a href="{{ route('support.create') }}">Criar duvida</a>
 <table class="table table-striped">
     <thead>
+        <th>Duvida</th>
         <th>Assunto</th>
         <th>Status</th>
         <th>Descrição</th>
     </thead>
     <tbody>
 
-        @foreach ($supports as $support)
+        @foreach ($supports->items() as $support)
             <tr>
-                <td>{{$support['subject']}}</td>
-                <td>{{$support['status']}}</td>
-                <td>{{$support['body']}}</td>
+                <td>{{$support->id}}</td>
+                <td>{{$support->subject}}</td>
+                <td>{{$support->status}}</td>
+                <td>{{$support->body}}</td>
+                <td>{{$support->id}}</td>
                 <td>
-                    <a href="{{ route('support.show', [$support['id']]) }}" class="btn btn-primary">ver</a>
-                    <a href="{{route('support.edit', [$support['id']])}}" class="btn btn-danger">editar</a>
+                    <a href="{{ route('support.show', [$support->id]) }}" class="btn btn-primary">ver</a>
+                    <a href="{{route('support.edit', [$support->id])}}" class="btn btn-danger">editar</a>
                 </td>
             </tr>
         @endforeach
@@ -40,3 +43,7 @@
 
 </body>
 </html>
+
+<x-pagination :paginator="$supports" :appends="$filters"/>
+
+16min aula 27 you

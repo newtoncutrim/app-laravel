@@ -22,14 +22,14 @@ class SupportController extends Controller
 
         $supports = $this->service->paginate(
             page: $request->get('page', 1),
-            totalPerPage: $request->get('per_page', 15),
+            totalPerPage: $request->get('per_page', 1),
             filter: $request->filter,
         );
 
-
+        $filters = ['filter' => $request->get('filter', '')];
 
         // return view('admin/supports/index', ['support' => $supports]);
-        return view('admin/supports/index', compact('supports'));
+        return view('admin/supports/index', compact('supports', 'filter'));
     }
 
     public function show(string $id){
