@@ -2,11 +2,7 @@
 
 namespace App\Repositories;
 
-interface PaginationInterface
-{
-    /**
-     * @return stdClass[]
-     */
+interface PaginationInterface {
     public function items(): array;
     public function total(): int;
     public function isFirstPage(): bool;

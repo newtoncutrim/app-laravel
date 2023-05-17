@@ -1,30 +1,21 @@
 <?php
 
 namespace App\Repositories;
-
+use App\Repositories\PaginationInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 use stdClass;
 
-class PaginationPresenter implements PaginationInterface
-{
-    /**
-     * @var stdClass[]
-     */
+class PaginationPresenter implements PaginationInterface {
     private array $items;
 
-    public function __construct(
-        protected LengthAwarePaginator $paginator,
-    ) {
+    public function __construct( protected LengthAwarePaginator $paginator)
+    {
         $this->items = $this->resolveItems($this->paginator->items());
     }
 
-    /**
-     * @return stdClass[]
-     */
     public function items(): array
     {
         return $this->items;
-        // return $this->paginator->items();
     }
 
     public function total(): int
@@ -67,7 +58,6 @@ class PaginationPresenter implements PaginationInterface
             }
             array_push($response, $stdClassObject);
         }
-
         return $response;
     }
 }
