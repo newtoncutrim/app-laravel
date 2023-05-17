@@ -1,16 +1,9 @@
 <h1>nova duvida</h1>
 
-@if ($errors->any())
-    @foreach($errors->all() as $error)
-        {{$error}}
-    @endforeach
-@endif
+<x-alert/>
 
 <a href="{{ route('support.index') }}">Mostrar</a>
 
 <form action="{{ route('support.store') }}" method="POST">
-    @csrf
-    <input type="text" placeholder="Assunto" name="subject" value="{{old('subject')}}">
-    <textarea name="body"  cols="30" rows="10">{{old('body')}}</textarea>
-    <button type="submit">Enviar</button>
+    @include('admin.supports.partials.form')
 </form>
