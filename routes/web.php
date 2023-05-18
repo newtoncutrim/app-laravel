@@ -17,18 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/contato', [SiteController::class, 'contato']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 // Route::get('/test', function (){
 //     dd(SupportStatus::cases());
 // });
 
 Route::delete('/support/{id}', [SupportController::class, 'destroy'])->name('support.destroy');
 
-Route::get('/teste', [Teste::class, 'teste']);
+// Route::get('/teste', [Teste::class, 'teste']);
 
-Route::get('/support', [SupportController::class, 'index'])->name('support.index');
+Route::get('/', [SupportController::class, 'index'])->name('support.index');
 
 Route::get('/support/create', [SupportController::class, 'creat'])->name('support.create');
 

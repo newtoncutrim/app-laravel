@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\DTO\Supports\CreateSupportDTO;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateSupport;
+use App\Services\SupportService;
 use Illuminate\Http\Request;
 
 class SupportController extends Controller
 {
+    public function __construct(protected SupportService $service)
+    {
+
+    }
     /**
      * Display a listing of the resource.
      */
@@ -18,9 +25,14 @@ class SupportController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUpdateSupport $request)
     {
-        //
+        $support = $this->service->new(
+            CreateSupportDTO::makeFromRequest($request)
+        );
+
+        return $support
+        ;
     }
 
     /**

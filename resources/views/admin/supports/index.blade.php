@@ -46,4 +46,4 @@
 
 <x-pagination :paginator="$supports" :appends="$filters"/>
 
-
+aula 30
